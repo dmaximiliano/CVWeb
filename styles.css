@@ -1,0 +1,256 @@
+/* Global */
+
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,700|Rubik:400,400i,500,700,700i&display=swap');
+
+:root{
+
+    --background:#1B1E25;
+    --primary-color:#F8F23D;
+    --primary-text:#EEEEEE;
+    --secondary-text:#C1C1C1;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Rubik, sans-serif;
+    color:var(--primary-text);
+    background-color: var(--background);
+}
+a{
+    text-decoration: none;
+}
+
+.btn-close{
+    position: fixed;
+    top:25px;
+    right:25px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    z-index: 10;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: var(--background);
+    
+}
+
+/* ===============  Mobile View  =============== */
+/* Layout */
+.curriculum{
+    padding-left: 10px;
+    padding-top: 30px;
+}
+/* Wrapper for flex-container width*/
+.line-wrap{
+    position: relative;
+    width: 100%;
+}
+/* Line itself */
+.line::before{
+    content: "";
+    height: 2px;
+    width: 95%;
+    background-color:var(--primary-color);
+    position: absolute;
+    top:50%;
+    z-index: 0;
+}
+/* Base container for the pseudo ::before*/
+h1{
+    position:relative;
+    display:inline;
+    padding-right: 15px;
+    z-index: 1;
+}
+/* Background color to hide the class .line when the screen expand or viceversa. */
+h1::before{
+    content: "";
+    position:absolute;
+    height:100%;
+    width: 100%;
+    background-color: var(--background);
+    z-index: -5;
+}
+
+
+/* Character & Paragraph Styles*/
+p{
+    margin:10px 0px;
+}
+
+.title{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: Arvo, sans-serif;
+    font-size: 20px;
+    color: white;
+    position: relative;
+}
+
+.date{
+    display: inline-block;
+    margin-top: 10px;
+    font-size:15px;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+.date-description{
+    text-transform: uppercase;
+    font-size: 13px;
+    color:var(--primary-text);
+    font-weight: 300;
+}
+.place{
+    color:var(--secondary-text);
+    font-size:10px;
+    font-weight: bold;
+    font-style: italic;
+}
+.description{
+    font-size:11px;
+    font-weight: 300;
+    font-style: italic;
+    color:var(--secondary-text);
+}
+
+.subtitle{
+    font-size:13px;
+    font-weight: 400;
+    color: var(--primary-text);
+    line-height: 1.4;
+    
+}
+
+/* Mobile Media Query */
+
+@media all and (max-width:768px){
+    .mobile-line-wrap{
+        position: relative;
+        width: 100%;
+    }
+    
+    .mobile-line::before{
+        content: "";
+        height: 2px;
+        width: 95%;
+        background-color:var(--primary-color);
+        position: absolute;
+        top:50%;
+        z-index: 0;
+    }
+}
+
+/* ===============  Tablet View  =============== */
+
+@media all and (min-width:769px){
+    
+    /* Layout */
+    section{
+        height: 100vh;
+    }
+    .curriculum{
+        padding:0;
+    }
+    .general-container{
+        width:90%;
+        max-width: 1080px;
+        margin: auto;
+    }
+    .flex-container{
+        height: 100vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .flex-container-left{
+        padding: 20px;
+        flex:1;
+    }
+    /* Relative position for the upcomming ::Before&After*/
+    .flex-container-right{
+        position: relative;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex:1;
+        padding: 40px 0px;
+        
+    }
+    /*Horizontal lines */
+    .line-corner::before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 20%;
+        background-color: var(--primary-color);
+    }
+    
+    .line-corner::after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 4px;
+        width: 20%;
+        background-color:  var(--primary-color);
+    }
+    /*Vertical lines */
+    .line-corner2::before{
+        content:"";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20%;
+        width: 4px;
+        background-color:  var(--primary-color);
+    }
+    
+    .line-corner2::after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 20%;
+        width: 4px;
+        background-color:  var(--primary-color);
+    }
+
+    .btn-close{
+        top:50px;
+        right:50px;
+    }
+
+    /* Character & Paragraph Styles*/
+
+    .title{
+        font-size: 25px;
+    }
+
+    .date{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .date-description{
+        font-size: 16px;
+    }
+    .place{
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    .description{
+        font-size: 13px;
+    }
+    .subtitle{
+        font-weight: bold;
+    }
+}
